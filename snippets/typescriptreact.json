@@ -1,0 +1,153 @@
+{
+    "Stencil Component": {
+        "prefix": "st-component",
+        "body": [
+            "import { Component, h } from '@stencil/core';",
+            "",
+            "",
+            "@Component({",
+            "\ttag: '${1:$TM_FILENAME_BASE}',",
+            "\tstyleUrl: '${1:$TM_FILENAME_BASE}.css'",
+            "})",
+            "export class ${2:${TM_FILENAME_BASE/(\\w+)?[-_\\s]+(\\w+)/${1:/capitalize}${2:/capitalize}/g}} {",
+            "\t$0",
+            "\trender() {",
+            "\t\treturn (",
+            "\t\t\t<p>My name is Stencil</p>",
+            "\t\t);",
+            "\t}",
+            "}"
+        ],
+        "description": "Generate a new web component"
+    },
+    "Stencil Prop": {
+        "prefix": "st-prop",
+        "body": [
+            "@Prop() ${1:newProp}: ${2|any,string,boolean,number|};"
+        ],
+        "description": "Declares an exposed property/attribute"
+    },
+    "Stencil State": {
+        "prefix": "st-state",
+        "body": [
+            "@State() ${1:newState}: ${2|any,string,boolean,number|};"
+        ],
+        "description": "Declares an internal state of the component"
+    },
+    "Stencil Watch": {
+        "prefix": "st-watch",
+        "body": [
+            "@Watch('${1:myProp}')",
+            "${2:watchHandler}(newValue, oldValue) {",
+            "\t${0:console.log('The value of ${1:myProp} is: ', newValue);}",
+            "}"
+        ],
+        "description": "Declares a hook that runs when a property or state changes"
+    },
+    "Stencil Element": {
+        "prefix": "st-element",
+        "body": [
+            "@Element() ${1:element}: HTMLElement;"
+        ],
+        "description": "Declares a reference to the host element"
+    },
+    "Stencil Method": {
+        "prefix": "st-method",
+        "body": [
+            "@Method()",
+            "${1:publicMethod}() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Declares an exposed public method"
+    },
+    "Stencil Event": {
+        "prefix": "st-event",
+        "body": [
+            "@Event() ${1:newCustomEvent}: EventEmitter;"
+        ],
+        "description": "Declares a DOM event the component might emit"
+    },
+    "Stencil Listen": {
+        "prefix": "st-listen",
+        "body": [
+            "@Listen('${1:myCustomEvent}')",
+            "customEventHandler(event) {",
+            "\t${0:console.log('Received the custom event: ', event);}",
+            "}"
+        ],
+        "description": "Listens for DOM events"
+    },
+    "Stencil Component Connected Callback Life Cycle": {
+        "prefix": "st-connected",
+        "body": [
+            "connectedCallback() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called every time the component is connected to the DOM. When the component is first connected, this method is called before componentWillLoad. It's important to note that this method can be called more than once, everytime, the element is attached or moved in the DOM."
+    },
+    "Stencil Component Disonnected Callback Life Cycle": {
+        "prefix": "st-disconnected",
+        "body": [
+            "disconnectedCallback() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called every time the component is disconnected from the DOM, ie, it call be dispatched more than once, DO not confuse with a 'onDestroy' kind of event."
+    },
+    "Stencil Component Will Load Life Cycle": {
+        "prefix": "st-willload",
+        "body": [
+            "componentWillLoad() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called once just after the component is first connected to the DOM. A promise can be returned, that can be used to wait for the first render."
+    },
+    "Stencil Component Did Load Life Cycle": {
+        "prefix": "st-didload",
+        "body": [
+            "componentDidLoad() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called once just after the component fully loaded and the first render() occurs."
+    },
+    "Stencil Component Will Render Life Cycle": {
+        "prefix": "st-willrender",
+        "body": [
+            "componentWillRender() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called before every render(). A promise can be returned, that can be used to wait for the upcoming render."
+    },
+    "Stencil Component Did Render Life Cycle": {
+        "prefix": "st-didrender",
+        "body": [
+            "componentDidRender() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called once just after the component fully loaded and the first render() occurs."
+    },
+    "Stencil Component Will Update Life Cycle": {
+        "prefix": "st-willupdate",
+        "body": [
+            "componentWillUpdate() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called when the component is about to be updated because some Prop() or State() changed. It's never called during the first render(). A promise can be returned, that can be used to wait for the next render."
+    },
+    "Stencil Component Did Update Life Cycle": {
+        "prefix": "st-didupdate",
+        "body": [
+            "componentDidUpdate() {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Called just after the component updates. It's never called during the first render()."
+    }
+}
