@@ -39,10 +39,46 @@ return {
       desc = "Find scope",
     },
 
-    -- Bandit
+    -- Git: Fugitive / Bandit
     ["<Leader>gc"] = {
       function() require("bandit").commit() end,
       desc = "Quick commit",
+    },
+
+    ["<Leader>gp"] = {
+      function() vim.cmd "Git push" end,
+      desc = "Git push",
+    },
+
+    -- Jest
+    ["<leader>jc"] = {
+      function() vim.cmd "Coverage" end,
+      desc = "Load Code Coverage",
+    },
+
+    ["<leader>jt"] = {
+      function() vim.cmd "CoverageToggle" end,
+      desc = "Toggle Code Coverage",
+    },
+
+    ["<leader>jr"] = {
+      function() require("neotest").run.run() end,
+      desc = "Run test",
+    },
+
+    ["<leader>jf"] = {
+      function() require("neotest").run.run(vim.fn.expand "%") end,
+      desc = "Run test for current file",
+    },
+
+    ["<leader>js"] = {
+      function() require("neotest").summary.toggle() end,
+      desc = "Toggle Test Summary panel",
+    },
+
+    ["<leader>jo"] = {
+      function() require("neotest").output_panel.toggle() end,
+      desc = "Toggle Test Output Panel",
     },
   },
   t = {
