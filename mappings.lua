@@ -6,7 +6,8 @@
 return {
   -- first key is the mode
   n = {
-    -- second key is the lefthand side of the map
+    ["]<CR>"] = { ':call append(line("."), "")<CR>', desc = "New line below" },
+    ["[<CR>"] = { ':call append(line(".")-1, "")<CR>', desc = "New line above" },
 
     -- navigate buffer tabs with `Tab` and `Shift + Tab`
     ["<tab>"] = {
