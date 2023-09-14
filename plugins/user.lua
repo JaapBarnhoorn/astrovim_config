@@ -31,6 +31,7 @@ return {
     opts = {
       flavour = "macchiato",
       integrations = { neotest = true },
+      transparent_background = true,
     },
   },
   {
@@ -45,6 +46,8 @@ return {
     config = true,
     keys = {
       { "<leader>hm", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
+      { "<leader>hr", "<cmd>lua require('harpoon.mark').rm_file()<cr>", desc = "Unmark file with harpoon" },
+      { "<leader>ht", "<cmd>lua require('harpoon.mark').toggle_file()<cr>", desc = "Toggle mark file with harpoon" },
       { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
       { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
       { "<leader>ha", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
@@ -88,12 +91,9 @@ return {
       return {
         adapters = {
           require "neotest-jest" {
-            jestCommand = "npm test",
+            jestCommand = "npx stencil test --spec",
             env = { CI = true },
             cwd = function(path) return vim.fn.getcwd() end,
-          },
-          require "neotest-jest" {
-            jestCommand = "npx stencil test --spec",
           },
         },
       }

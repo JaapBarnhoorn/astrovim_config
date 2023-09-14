@@ -9,6 +9,7 @@ local directories = {
   "micro-frontend-core-library",
   "design-system-component-package",
   "helpdesk-component-package",
+  "helpdesk-web-app",
   "digid-machtigen-component-package",
   "digid-machtigen-aanmaken-component-package",
   "digid-machtigen-activeren-component-package",

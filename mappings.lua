@@ -9,6 +9,10 @@ return {
     ["]<CR>"] = { ':call append(line("."), "")<CR>', desc = "New line below" },
     ["[<CR>"] = { ':call append(line(".")-1, "")<CR>', desc = "New line above" },
 
+    -- move lines up and down
+    ["J"] = { ":m .+1<CR>==" },
+    ["K"] = { ":m .-2<CR>==" },
+
     -- navigate buffer tabs with `Tab` and `Shift + Tab`
     ["<tab>"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
@@ -60,6 +64,11 @@ return {
     ["<leader>jt"] = {
       function() vim.cmd "CoverageToggle" end,
       desc = "Toggle Code Coverage",
+    },
+
+    ["<leader>jw"] = {
+      function() require("neotest").watch.toggle() end,
+      desc = "Toggle test watch",
     },
 
     ["<leader>jr"] = {
